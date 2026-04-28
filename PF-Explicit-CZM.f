@@ -106,7 +106,7 @@ C      Calculate the principal strain
          eigVal(i,3)=AS
       endif
 
-C      Spectral tension¨Ccompression split
+C      Spectral tensionÂ¨Ccompression split
       
       trp1=(eigVal(i,1)+eigVal(i,2)+eigVal(i,3)+
      1 abs(eigVal(i,1)+eigVal(i,2)+eigVal(i,3)))/2.d0     
@@ -151,8 +151,7 @@ C      Update the inelastic dissipated energy and restrict the phase field rate
       if(tempNew(i) .le. tempOld(i)) tempNew(i)=tempOld(i)
         
       if(tempNew(i) .ge. 1.d0) then
-      enerInelasNew(i)=-1.d0/xl**2*
-     1  dtArray(1)/density(i)+enerInelasOld(i)
+      enerInelasNew(i)=enerInelasOld(i)
       tempNew(i)=1.d0
       else
         enerInelasNew(i)=-(dg*H*2.d0*cw/(xl*Gc)+dw/(2.d0*xl**2))*
